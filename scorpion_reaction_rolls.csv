@@ -1,0 +1,61 @@
+Scorpion,Behavior,Volume,Probes,Reaction_Time,size,roll
+RC9,No sting,n/a,3,2.1,large,control
+RC15,Dry sting,n/a,2,1.7,large,control
+RC11,No sting,n/a,5,8.9,large,control
+RC27,Wet sting,<0.05,5,7.56,large,control
+RC26,No sting,n/a,1,0.73,large,control
+RC34,Jab,n/a,1,1.5,large,control
+RC17,Jab,n/a,9,6.15,large,control
+RC19,Wet sting,0.05,2,1.58,large,control
+RC31,No sting,n/a,12,7.93,large,control
+RC18,Jab,n/a,6,3.63,large,control
+RC21,No sting,n/a,3,2.61,large,control
+RC1,No sting,n/a,3,2.25,large,control
+RC20,No sting,n/a,3,3.78,large,control
+RC24,Dry sting,n/a,1,0.64,large,control
+RC3,Jab,n/a,2,2.93,large,control
+RC12,Dry sting,n/a,2,0.79,large,control
+RC32,Jab,n/a,1,0.38,large,control
+RC28,Dry sting,n/a,20,1.02,small,control
+RC7,Dry sting,n/a,1,1.03,small,control
+RC25,Dry sting,n/a,1,0.48,small,control
+RC2,Dry sting,n/a,2,0.56,small,control
+RC30,Dry sting,n/a,1,1.03,small,control
+RC23,Dry sting,n/a,4,1.85,small,control
+RC22,Dry sting,n/a,2,2.66,small,control
+RC6,Dry sting,n/a,2,1.46,small,control
+RC4,Dry sting,n/a,1,0.18,small,control
+RC10,Dry sting,n/a,2,0.9,small,control
+RC13,Dry sting,n/a,2,0.93,small,control
+RC16,Jab,n/a,2,1.67,small,control
+RC33,Dry sting,n/a,1,0.43,small,control
+RC9,Dry sting,n/a,1,0.68,large,threat
+RC15,Jab,n/a,3,1.98,large,threat
+RC11,Wet sting,0.15,3,4.2,large,threat
+RC27,Wet sting,0.2,1,0.56,large,threat
+RC26,Wet sting,0.1,1,0.54,large,threat
+RC34,Wet sting,0.1,2,0.7,large,threat
+RC17,Jab,n/a,5,1.5,large,threat
+RC19,Wet sting,0.2,1,0.35,large,threat
+RC31,Wet sting,0.2,2,1.5,large,threat
+RC18,Wet sting,0.1,1,4.9,large,threat
+RC21,Wet sting,0.15,2,1.58,large,threat
+RC1,Jab,n/a,2,3.9,large,threat
+RC20,Jab,n/a,2,2.2,large,threat
+RC24,Wet sting,0.1,1,0.49,large,threat
+RC3,Dry sting,n/a,1,0.58,large,threat
+RC12,Wet sting,0.1,2,1.38,large,threat
+RC32,Wet sting,0.5,1,0.43,large,threat
+RC28,Wet sting,0.1,2,0.9,small,threat
+RC7,Dry sting,n/a,1,0.9,small,threat
+RC25,Wet sting,<0.05,1,0.48,small,threat
+RC2,Wet sting,<0.05,1,0.36,small,threat
+RC30,Wet sting,<0.05,1,0.41,small,threat
+RC23,Wet sting,0.2,1,0.53,small,threat
+RC22,Wet sting,<0.05,1,0.54,small,threat
+RC6,Wet sting,0.2,1,1.03,small,threat
+RC4,Wet sting,<0.05,1,0.53,small,threat
+RC10,Dry sting,n/a,1,0.17,small,threat
+RC13,Wet sting,<0.05,1,0.72,small,threat
+RC16,Wet sting,<0.05,1,0.18,small,threat
+RC33,Jab,n/a,1,0.35,small,threat
