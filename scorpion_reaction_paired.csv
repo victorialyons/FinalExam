@@ -1,0 +1,31 @@
+Scorpion,Behavior_control,Volume_control,Probes_control,Reaction_Time_control,Behavior_predator,Volume_predator,Probes_predator,Reaction_Time_predator,size
+RC9,No sting,n/a,3,2.1,Dry sting,n/a,1,0.68,large
+RC15,Dry sting,n/a,2,1.7,Jab,n/a,3,1.98,large
+RC11,No sting,n/a,5,8.9,Wet sting,0.15,3,4.2,large
+RC27,Wet sting,<0.05,5,7.56,Wet sting,0.2,1,0.56,large
+RC26,No sting,n/a,1,0.73,Wet sting,0.1,1,0.54,large
+RC34,Jab,n/a,1,1.5,Wet sting,0.1,2,0.7,large
+RC17,Jab,n/a,9,6.15,Jab,n/a,5,1.5,large
+RC19,Wet sting,0.05,2,1.58,Wet sting,0.2,1,0.35,large
+RC31,No sting,n/a,12,7.93,Wet sting,0.2,2,1.5,large
+RC18,Jab,n/a,6,3.63,Wet sting,0.1,1,4.9,large
+RC21,No sting,n/a,3,2.61,Wet sting,0.15,2,1.58,large
+RC1,No sting,n/a,3,2.25,Jab,n/a,2,3.9,large
+RC20,No sting,n/a,3,3.78,Jab,n/a,2,2.2,large
+RC24,Dry sting,n/a,1,0.64,Wet sting,0.1,1,0.49,large
+RC3,Jab,n/a,2,2.93,Dry sting,n/a,1,0.58,large
+RC12,Dry sting,n/a,2,0.79,Wet sting,0.1,2,1.38,large
+RC32,Jab,n/a,1,0.38,Wet sting,0.5,1,0.43,large
+RC28,Dry sting,n/a,20,1.02,Wet sting,0.1,2,0.9,small
+RC7,Dry sting,n/a,1,1.03,Dry sting,n/a,1,0.9,small
+RC25,Dry sting,n/a,1,0.48,Wet sting,<0.05,1,0.48,small
+RC2,Dry sting,n/a,2,0.56,Wet sting,<0.05,1,0.36,small
+RC30,Dry sting,n/a,1,1.03,Wet sting,<0.05,1,0.41,small
+RC23,Dry sting,n/a,4,1.85,Wet sting,0.2,1,0.53,small
+RC22,Dry sting,n/a,2,2.66,Wet sting,<0.05,1,0.54,small
+RC6,Dry sting,n/a,2,1.46,Wet sting,0.2,1,1.03,small
+RC4,Dry sting,n/a,1,0.18,Wet sting,<0.05,1,0.53,small
+RC10,Dry sting,n/a,2,0.9,Dry sting,n/a,1,0.17,small
+RC13,Dry sting,n/a,2,0.93,Wet sting,<0.05,1,0.72,small
+RC16,Jab,n/a,2,1.67,Wet sting,<0.05,1,0.18,small
+RC33,Dry sting,n/a,1,0.43,Jab,n/a,1,0.35,small
