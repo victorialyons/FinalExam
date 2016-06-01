@@ -1,8 +1,8 @@
 ---
 title: "Final Exam on Scorpion Behavior"
-author: "Put your name here!"
-date: "put the date here"
-output: word_document
+author:  "Victoria Lyons"
+date: "June 02, 2016"
+output: html_document
 ---
 
 ```{r include=FALSE,echo=FALSE}
@@ -15,73 +15,153 @@ require(tigerstats)
 
 # Introduction
 
-<In this section you explain what you are trying to show.  Where did the data come from?  What is the research or other question you are trying to answer?>
-
-#### what was asked for
 Investigate whether the odors from a predator might influence the defensive behavior of Hadrurus arizonensis, and if the scorpion size plays a role in the type of response.
 
-we see this as two questions
+We see this as two questions:
 
-##### does presence of odor change the expected outcome on our measurements?
+*   __Does presence of odor change the expected outcome on our measurements?__
+*   __Does size of the scorpion change the expected outcome on our measurements?__
 
-<for continuous measurements we could ask for center differences (means or medians)
+We were given two comma separated values files containing these measurements
 
-for catagorical explanitory variables (such as count of type of response)
-a chi-squared test would be chosen.>
+A data frame with 60 observations on the following 7 variables:
 
-##### does size of the scorpion change the expected outcome on our measurements?
+* __Scorpion__ - a tag indicating which scorpion was measured.
+* __Behavior__ - a factor variable [no sting, dry sting, wet sting, jab].
+* __Volume__ - a numerical measure of venom amount (wet sting).
+* __Probes__ - a numerical count of the number of "hits" applied to get a reaction.	
+* __Reaction Time__ - a numerical measure of time it took to get a reaction.
+* __size__ - a factor (large, small) of scorpion size.
+* __roll__ - a factor (control, threat) of absence or presence of an apparent threat to the scorpion (rat urine).
 
-<for continuous measurements we could ask for center differences (means or medians)
+There were 30 different scorpions tested. Each scorpion was tested twice, once in control (no rat urine present), and once in threat (rat urine ) the order of testing was randomly assigned.
 
-for catagorical explanitory variables (such as count of type of response)
-a chi-squared test would be chosen.>
+One of the csv files refers to the individual tests run. It has 60 observations. The other is conveiently organized as paired data with obsevations of each scorpion in both threat and control conditions for conveinence in paired tests.
 
+In order to answer our questions, a analysis shows we should be using the variable: Behavior, size, and roll. This is important as it guides us to show how we answer the questions.
 
 # Methods for presence vs absence of odor
 
-<Decide on your methods:  use "variable analysis" or other appropriate descriptors.  Make sure to choose at least one graphical method and at least one numerical method.>
+The methods we use for this problem involve explaining the categorical variables (Behavior, roll). We will use bar chart as our graphical tool, rowPerc as our numerical tool, and Chi-square test as our inferential methods. To deal with the question if the presence of odor would change the expected outcome, we will use this definition:
+
+* __Jab__ - used back of telson. The stinger part not used.		
+* __Dry sting__ - Stinger was used but no venom was delivered.	
+* __Wet sting__ - Stinger was used and venom was delivered.	
+* __No sting__ - Stinger not used.
 
 #Results
 
-<Divide this section into two sub-sections:  One for your descriptive  results and one for your inferential results.>
-
 ## Descriptive Results
+
+In order to understand the comparison between the scorpions when an odor is a factor, we have to explain when they would attack or become more aggravated. We must create a bar chart in order to compare the reaction time for the scorpions when they feel threatened by a predator and when they do not feel threatened by a predator. We will create a row percent to see if there’s a relationship when a scorpion feels threatened by a predator, or if they don’t feel threatened by a predator. Furthermore, we will produce a Chi-square test in order to show the comparison between the control group as well as the experimental group so that we may see if they have a significant comparison.
 
 ### Graphical Descriptive Results
 
-<Graphical results here.  Make sure to show your code.  Provide appropriate labels for axes, giving units if possible, and provide a good title for the graph, too.  Use the graphical results to describe the patterns if any that exist in the data as focused toward the research question>
+    We first will look at a barchart to answer.
+
+```{r}
+url2="scorpion_reaction_rolls.csv"
+scorp_data2=read.csv(url2,header=T)
+contTable <- xtabs(~ Behavior + roll, data = scorp_data2)
+barchart(contTable,
+	auto.key = list(
+		space = "top",
+		title = "roll",
+		cex.title = 1,
+		columns = 1),
+	horizontal = FALSE,
+	main = "Does Odor Change the Expected Outcome?",
+	xlab = "Behavior",
+	ylab = "Frequency")
+```
+
+* The bar graph clearly shows that the scorpions are much more likely to have a wet sting when a threat is present, than in the control group when the threat is not present.
 
 ### Numerical Descriptive Results
 
-<Numerical results go here. Use the numerical results to describe the patterns if any that exist in the data as focused toward the research question>
+    We will consider comparing row percent.
+
+```{r}
+attach(scorp_data2)
+rol=table(roll,Behavior)
+rowPerc(rol)
+```
+
+* The row percent test definitely shows the scorpions are more likely to have a wet sting when a threat is present as opposed to when there is no threat present. About 70% of the scorpions will have a wet sting when the threat is present. While those who did not have a threat present, had about 7% with a wet sting.
 
 ## Inferential Results
 
-<State hypothesis clearly.  Make sure your discussion of the inferential test covers all the aspects that the test output produces, such as test statistic, p-value etc.  Make a decision about the null hypothesis, explain the assumptions on which the selected test/procedure was based, and why the chosen procedure satisfys the assumptions and is appropriate to answer the research question>
+    We will use a Chi-squared test to answer.
+    
+```{r}
+chisqtestGC(rol,simulate.p.value = TRUE)
+```
 
-# Methods for different sizes (large vs small)
+* The Chi-Square test shows that we would reject the null hypothesis based on the fact that the wet sting was used more frequently with the threat presence in comparison to when there is no threat present. The P-Value is significantly low which indicates that there is a difference between the two variables compared.
 
-<Decide on your methods:  use "variable analysis" or other appropriate descriptors.  Make sure to choose at least one graphical method and at least one numerical method.>
+# Methods for Different Sizes (large vs small)
+
+The methods we use for this problem involve explaining the categorical variables (Behavior, roll, size). We will use bar chart as our graphical tool, rowPerc as our numerical tool, and t-tests as our inferential methods. To deal with the question if size makes a difference with the presence of odor, we will use this definition:
+
+* __Jab__ - used back of telson. The stinger part not used.		
+* __Dry sting__ - Stinger was used but no venom was delivered.	
+* __Wet sting__ - Stinger was used and venom was delivered.	
+* __No sting__ - Stinger not used.
 
 #Results
 
-<Divide this section into two sub-sections:  One for your descriptive  results and one for your inferential results.>
-
 ## Descriptive Results
+
+To understand if we have a difference in outcome based on size, we have to compare the scorpions when an odor is a factor to see if they would attack or become more aggravated. We will create a plot in order to understand if there’s a difference in size when the scorpion feels threatened by a predator or if they don’t feel threatened by a predator. We will create a row percent to see if there’s a relationship between the size of a scorpion when it feels threatened by a predator or if they don’t feel threatened by a predator. We will also produce a t.test in order to show the comparison in the sizes between the control group and the experimental group.
 
 ### Graphical Descriptive Results
 
-<Graphical results here.  Make sure to show your code.  Provide appropriate labels for axes, giving units if possible, and provide a good title for the graph, too.  Use the graphical results to describe the patterns if any that exist in the data as focused toward the research question>
+    We first will look at a barchart to answer.
+
+```{r}
+contTable <- xtabs(~ Behavior + size, data = scorp_data2)
+barchart(contTable,
+	auto.key = list(
+		space = "top",
+		title = "Size",
+		cex.title = 1,
+		columns = 1),
+	horizontal = FALSE,
+	main = "Behavior Based on Size",
+	xlab = "Behavior",
+	ylab = "Frequency")
+```
+
+* The bar chart certainly shows the small scorpions are much more likely to have a dry sting when a threat is present than the large scorpions. It also shows that when both sizes feel threatened, they are about even to produce a wet sting.
 
 ### Numerical Descriptive Results
 
-<Numerical results go here. Use the numerical results to describe the patterns if any that exist in the data as focused toward the research question>
+    We will consider comparing row percents.
+
+```{r}
+attach(scorp_data2)
+rol=table(size,Behavior)
+rowPerc(rol)
+```
+
+* The row percent test clearly shows that the small scorpions are more likely to have a dry sting when a threat is present as opposed to large scorpions. The small scorpion is about 54% compared to about 15% with the large scorpion. They are both even with about 39% to have a wet sting when a threat is present.
 
 ## Inferential Results
 
-<State hypothesis clearly.  Make sure your discussion of the inferential test covers all the aspects that the test output produces, such as test statistic, p-value etc.  Make a decision about the null hypothesis, explain the assumptions on which the selected test/procedure was based, and why the chosen procedure satisfys the assumptions and is appropriate to answer the research question>
+    We will use a t.test to answer.
 
+```{r}
+t.test(Reaction_Time ~ size, data = scorp_data2)
+```
+
+* The results of our inferential test say the probability of getting results like this observed is 0.000352, if we believe the null hypothesis. So this convincing evidence leads us to reject the null hypothesis. Concludes that the size of a scorpion shows a significant difference when threatened by a predator.
 
 # Discussion and Conclusion for both set of research questions
 
-<Discussion and conclusion here.  If you found a relationship be sure to consider whether the relationship occurs because one of the variavbles causes the other, or whether they perhasps are related for some other reason.>
+__Does presence of odor change the expected outcome on our measurements?__
+    
+* When a scorpion is tested with the threat from the odor of rat urine, they are more likely to behave with a wet sting. When in a control test with no threat using the odor of rat urine, a scorpion has a smaller chance of behaving with a wet sting. In conclusion, the odor of rat urine does affect the scorpion behavior when threatened.
+
+__Does size of the scorpion change the expected outcome on our measurements?__
+
+* When both the small and large scorpions are in the present of rat urine, they are even at about 39% with behaving with a wet sting. However, a small scorpion is more likely to produce a dry sting when in the presence of rat urine than the large scorpion. The large scorpions have a better chance of defending with no sting or a jab when a threat is present. In conclusion, the odor of rat urine does have a higher effect with the small scorpion to defend with a wet or dry sting when a threat is present.
